@@ -17,8 +17,9 @@ public class TestController {
 
     @GetMapping("/thread")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> test() {
+    public ResponseEntity<String> test() throws InterruptedException {
         Thread thread = Thread.currentThread();
+        Thread.sleep(1000L);
         log.info("Rest controller method has been called {}", thread.getName());
         return ResponseEntity.ok(thread.getName());
     }
